@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		66ED18D51DB7762900B7A8DC /* BLKLockSecretUtil.mm in Sources */ = {isa = PBXBuildFile; fileRef = 66ED18D01DB7762900B7A8DC /* BLKLockSecretUtil.mm */; };
+		66ED18D61DB7762900B7A8DC /* LCEncryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 66ED18D21DB7762900B7A8DC /* LCEncryption.m */; };
+		66ED18D71DB7762900B7A8DC /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 66ED18D41DB7762900B7A8DC /* NSString+Hash.m */; };
+		66ED18DB1DB7765B00B7A8DC /* LCBLEManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 66ED18DA1DB7765B00B7A8DC /* LCBLEManager.m */; };
 		66F500861DAE1A49002E2854 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F500851DAE1A49002E2854 /* main.m */; };
 		66F500891DAE1A49002E2854 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F500881DAE1A49002E2854 /* AppDelegate.m */; };
 		66F5008C1DAE1A49002E2854 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F5008B1DAE1A49002E2854 /* ViewController.m */; };
@@ -17,6 +21,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		66ED18CF1DB7762900B7A8DC /* BLKLockSecretUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLKLockSecretUtil.h; sourceTree = "<group>"; };
+		66ED18D01DB7762900B7A8DC /* BLKLockSecretUtil.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BLKLockSecretUtil.mm; sourceTree = "<group>"; };
+		66ED18D11DB7762900B7A8DC /* LCEncryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCEncryption.h; sourceTree = "<group>"; };
+		66ED18D21DB7762900B7A8DC /* LCEncryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCEncryption.m; sourceTree = "<group>"; };
+		66ED18D31DB7762900B7A8DC /* NSString+Hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Hash.h"; sourceTree = "<group>"; };
+		66ED18D41DB7762900B7A8DC /* NSString+Hash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Hash.m"; sourceTree = "<group>"; };
+		66ED18D91DB7765B00B7A8DC /* LCBLEManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCBLEManager.h; sourceTree = "<group>"; };
+		66ED18DA1DB7765B00B7A8DC /* LCBLEManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCBLEManager.m; sourceTree = "<group>"; };
 		66F500811DAE1A48002E2854 /* LCTools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LCTools.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66F500851DAE1A49002E2854 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		66F500871DAE1A49002E2854 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -42,6 +54,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		66ED18CE1DB7762900B7A8DC /* 加密 */ = {
+			isa = PBXGroup;
+			children = (
+				66ED18CF1DB7762900B7A8DC /* BLKLockSecretUtil.h */,
+				66ED18D01DB7762900B7A8DC /* BLKLockSecretUtil.mm */,
+				66ED18D11DB7762900B7A8DC /* LCEncryption.h */,
+				66ED18D21DB7762900B7A8DC /* LCEncryption.m */,
+				66ED18D31DB7762900B7A8DC /* NSString+Hash.h */,
+				66ED18D41DB7762900B7A8DC /* NSString+Hash.m */,
+			);
+			path = "加密";
+			sourceTree = "<group>";
+		};
+		66ED18D81DB7763A00B7A8DC /* 蓝牙 */ = {
+			isa = PBXGroup;
+			children = (
+				66ED18D91DB7765B00B7A8DC /* LCBLEManager.h */,
+				66ED18DA1DB7765B00B7A8DC /* LCBLEManager.m */,
+			);
+			path = "蓝牙";
+			sourceTree = "<group>";
+		};
 		66F500781DAE1A48002E2854 = {
 			isa = PBXGroup;
 			children = (
@@ -61,6 +95,8 @@
 		66F500831DAE1A48002E2854 /* LCTools */ = {
 			isa = PBXGroup;
 			children = (
+				66ED18D81DB7763A00B7A8DC /* 蓝牙 */,
+				66ED18CE1DB7762900B7A8DC /* 加密 */,
 				66F500871DAE1A49002E2854 /* AppDelegate.h */,
 				66F500881DAE1A49002E2854 /* AppDelegate.m */,
 				66F5008A1DAE1A49002E2854 /* ViewController.h */,
@@ -156,9 +192,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66ED18D71DB7762900B7A8DC /* NSString+Hash.m in Sources */,
 				66F5009D1DAE1C4B002E2854 /* LCImageManager.m in Sources */,
+				66ED18D61DB7762900B7A8DC /* LCEncryption.m in Sources */,
 				66F5008C1DAE1A49002E2854 /* ViewController.m in Sources */,
+				66ED18D51DB7762900B7A8DC /* BLKLockSecretUtil.mm in Sources */,
 				66F500891DAE1A49002E2854 /* AppDelegate.m in Sources */,
+				66ED18DB1DB7765B00B7A8DC /* LCBLEManager.m in Sources */,
 				66F500861DAE1A49002E2854 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
