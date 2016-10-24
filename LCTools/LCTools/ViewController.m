@@ -9,6 +9,8 @@
 #import "ViewController.h"
 #import "LCBLEManager.h"
 
+#import "NSString+AES256.h"
+
 @interface ViewController ()
 
 @end
@@ -18,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    hano(3, 1, 2, 3);
+    
     
     
     
@@ -26,6 +28,22 @@
     
 }
 
+
+
+
+- (void)AES {
+    
+    NSString *source = @"4d5237686126d7209e224d02c8e38c644d5237686126d7209e224d02c8e38c64";
+    NSString *key = @"19891001";
+    
+    NSString *secret = [source aes256_encrypt:key];
+    NSLog(@"密文: %@", secret);
+    
+    NSString *deSecret = [secret aes256_decrypt:key];
+    NSLog(@"明文: %@", deSecret);
+    
+    
+}
 
 #pragma mark - 递归算法
 

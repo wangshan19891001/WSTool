@@ -11,13 +11,15 @@
 		66ED18D61DB7762900B7A8DC /* LCEncryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 66ED18D21DB7762900B7A8DC /* LCEncryption.m */; };
 		66ED18D71DB7762900B7A8DC /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 66ED18D41DB7762900B7A8DC /* NSString+Hash.m */; };
 		66ED18DB1DB7765B00B7A8DC /* LCBLEManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 66ED18DA1DB7765B00B7A8DC /* LCBLEManager.m */; };
+		66F28BB81DBDF2BA000B342E /* NSData+AES256.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F28BB71DBDF2BA000B342E /* NSData+AES256.m */; };
+		66F28BBB1DBDF342000B342E /* NSString+AES256.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F28BBA1DBDF342000B342E /* NSString+AES256.m */; };
+		66F28BBF1DBDFB46000B342E /* LCImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F28BBE1DBDFB46000B342E /* LCImageManager.m */; };
 		66F500861DAE1A49002E2854 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F500851DAE1A49002E2854 /* main.m */; };
 		66F500891DAE1A49002E2854 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F500881DAE1A49002E2854 /* AppDelegate.m */; };
 		66F5008C1DAE1A49002E2854 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F5008B1DAE1A49002E2854 /* ViewController.m */; };
 		66F5008F1DAE1A49002E2854 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66F5008D1DAE1A49002E2854 /* Main.storyboard */; };
 		66F500911DAE1A49002E2854 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66F500901DAE1A49002E2854 /* Assets.xcassets */; };
 		66F500941DAE1A49002E2854 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66F500921DAE1A49002E2854 /* LaunchScreen.storyboard */; };
-		66F5009D1DAE1C4B002E2854 /* LCImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F5009C1DAE1C4B002E2854 /* LCImageManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,12 @@
 		66ED18D41DB7762900B7A8DC /* NSString+Hash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Hash.m"; sourceTree = "<group>"; };
 		66ED18D91DB7765B00B7A8DC /* LCBLEManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCBLEManager.h; sourceTree = "<group>"; };
 		66ED18DA1DB7765B00B7A8DC /* LCBLEManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCBLEManager.m; sourceTree = "<group>"; };
+		66F28BB61DBDF2BA000B342E /* NSData+AES256.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+AES256.h"; sourceTree = "<group>"; };
+		66F28BB71DBDF2BA000B342E /* NSData+AES256.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+AES256.m"; sourceTree = "<group>"; };
+		66F28BB91DBDF342000B342E /* NSString+AES256.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+AES256.h"; sourceTree = "<group>"; };
+		66F28BBA1DBDF342000B342E /* NSString+AES256.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+AES256.m"; sourceTree = "<group>"; };
+		66F28BBD1DBDFB46000B342E /* LCImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCImageManager.h; sourceTree = "<group>"; };
+		66F28BBE1DBDFB46000B342E /* LCImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCImageManager.m; sourceTree = "<group>"; };
 		66F500811DAE1A48002E2854 /* LCTools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LCTools.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66F500851DAE1A49002E2854 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		66F500871DAE1A49002E2854 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -39,8 +47,6 @@
 		66F500901DAE1A49002E2854 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		66F500931DAE1A49002E2854 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		66F500951DAE1A49002E2854 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		66F5009B1DAE1C4B002E2854 /* LCImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCImageManager.h; sourceTree = "<group>"; };
-		66F5009C1DAE1C4B002E2854 /* LCImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCImageManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +82,26 @@
 			path = "蓝牙";
 			sourceTree = "<group>";
 		};
+		66F28BB51DBDF296000B342E /* AES加密 */ = {
+			isa = PBXGroup;
+			children = (
+				66F28BB61DBDF2BA000B342E /* NSData+AES256.h */,
+				66F28BB71DBDF2BA000B342E /* NSData+AES256.m */,
+				66F28BB91DBDF342000B342E /* NSString+AES256.h */,
+				66F28BBA1DBDF342000B342E /* NSString+AES256.m */,
+			);
+			path = "AES加密";
+			sourceTree = "<group>";
+		};
+		66F28BBC1DBDFB46000B342E /* 运行时 */ = {
+			isa = PBXGroup;
+			children = (
+				66F28BBD1DBDFB46000B342E /* LCImageManager.h */,
+				66F28BBE1DBDFB46000B342E /* LCImageManager.m */,
+			);
+			path = "运行时";
+			sourceTree = "<group>";
+		};
 		66F500781DAE1A48002E2854 = {
 			isa = PBXGroup;
 			children = (
@@ -95,14 +121,14 @@
 		66F500831DAE1A48002E2854 /* LCTools */ = {
 			isa = PBXGroup;
 			children = (
+				66F28BBC1DBDFB46000B342E /* 运行时 */,
 				66ED18D81DB7763A00B7A8DC /* 蓝牙 */,
 				66ED18CE1DB7762900B7A8DC /* 加密 */,
+				66F28BB51DBDF296000B342E /* AES加密 */,
 				66F500871DAE1A49002E2854 /* AppDelegate.h */,
 				66F500881DAE1A49002E2854 /* AppDelegate.m */,
 				66F5008A1DAE1A49002E2854 /* ViewController.h */,
 				66F5008B1DAE1A49002E2854 /* ViewController.m */,
-				66F5009B1DAE1C4B002E2854 /* LCImageManager.h */,
-				66F5009C1DAE1C4B002E2854 /* LCImageManager.m */,
 				66F5008D1DAE1A49002E2854 /* Main.storyboard */,
 				66F500901DAE1A49002E2854 /* Assets.xcassets */,
 				66F500921DAE1A49002E2854 /* LaunchScreen.storyboard */,
@@ -193,9 +219,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				66ED18D71DB7762900B7A8DC /* NSString+Hash.m in Sources */,
-				66F5009D1DAE1C4B002E2854 /* LCImageManager.m in Sources */,
+				66F28BB81DBDF2BA000B342E /* NSData+AES256.m in Sources */,
 				66ED18D61DB7762900B7A8DC /* LCEncryption.m in Sources */,
 				66F5008C1DAE1A49002E2854 /* ViewController.m in Sources */,
+				66F28BBF1DBDFB46000B342E /* LCImageManager.m in Sources */,
+				66F28BBB1DBDF342000B342E /* NSString+AES256.m in Sources */,
 				66ED18D51DB7762900B7A8DC /* BLKLockSecretUtil.mm in Sources */,
 				66F500891DAE1A49002E2854 /* AppDelegate.m in Sources */,
 				66ED18DB1DB7765B00B7A8DC /* LCBLEManager.m in Sources */,
