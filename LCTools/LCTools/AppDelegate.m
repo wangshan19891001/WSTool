@@ -8,6 +8,10 @@
 
 #import "AppDelegate.h"
 
+#import "OneViewController.h"
+#import "TwoViewController.h"
+#import "ThreeViewController.h"
+
 @interface AppDelegate ()
 
 @end
@@ -16,7 +20,34 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    
+//    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+//    self.window.backgroundColor = [UIColor whiteColor];
+//    [self.window makeKeyAndVisible];
+//    
+//    UITabBarController *tabVC = [[UITabBarController alloc] init];
+//    self.window.rootViewController = tabVC;
+//    
+//    OneViewController *oneVC = [[OneViewController alloc] init];
+//    oneVC.title = @"one";
+//    oneVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"one" image:[UIImage imageNamed:@"followup_normal"] selectedImage:[[UIImage imageNamed:@"followup_highlight"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+////    oneVC.tabBarItem.image = [[UIImage imageNamed:@"followup_normal"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+////    oneVC.tabBarItem.selectedImage = [[UIImage imageNamed:@"followup_highlight"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+//    UINavigationController *oneNav = [[UINavigationController alloc] initWithRootViewController:oneVC];
+//    
+//    TwoViewController *twoVC = [[TwoViewController alloc] init];
+//    twoVC.title = @"twoVC";
+//    
+//    ThreeViewController *threeVC = [[ThreeViewController alloc] init];
+//    threeVC.title = @"three";
+//    
+//    tabVC.viewControllers = @[oneNav, twoVC, threeVC];
+    
+    
+    
+    
+    
     return YES;
 }
 
