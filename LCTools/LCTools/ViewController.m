@@ -11,7 +11,12 @@
 
 #import "NSString+AES256.h"
 
+#import "DataBase.h"
+#import <FMDB.h>
+
 @interface ViewController ()
+
+@property (nonatomic, strong) FMDatabaseQueue *queue;
 
 @end
 
@@ -26,15 +31,76 @@
     
     
     
+    
+    
+    
+    
 }
 
+- (IBAction)dropTable:(UIButton *)sender {
+    DataBase *dbManager = [DataBase sharedManager];
+    [dbManager clearTable];
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    
+    
+//    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+//        
+//        DataBase *dbManager = [DataBase sharedManager];
+//        
+//        for (int i = 0; i < 1000; i++) {
+//            Person *person = [[Person alloc] init];
+//            person.ID = @1;
+//            person.name = @"Alice";
+//            person.image = [UIImage imageNamed:@"newImage"];
+//            [dbManager insertPerson:person];
+//        }
+//    });
+    
+    //创建数据库
+//    NSString *documentPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+//    NSString *fileName = [documentPath stringByAppendingPathComponent:@"sql.sqlite"]; //此处需要传入存在的确定的路径
+//    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:fileName];
+//    [queue inDatabase:^(FMDatabase *db) {
+//        
+//        
+//        NSLog(@"创建一个队列");
+//        DataBase *dbManager = [DataBase sharedManager];
+//        
+//        for (int i = 0; i < 1000; i++) {
+//            Person *person = [[Person alloc] init];
+//            person.ID = [NSNumber numberWithInt:i];
+//            person.name = @"Alice";
+//            person.image = [UIImage imageNamed:@"newImage"];
+//            [dbManager insertPerson:person];
+//        }
+//    }];
+    
+    NSMutableArray *array = [NSMutableArray array];
+    DataBase *dbManager = [DataBase sharedManager];
+    
+    for (int i = 0; i < 10; i++) {
+        Person *person = [[Person alloc] init];
+        person.ID = [NSNumber numberWithInt:i];
+        person.name = @"Alice";
+        person.image = [UIImage imageNamed:@"newImage"];
+        [array addObject:person];
+    }
+    
+    [dbManager insertPersonArray:array];
+    
+    
+}
 
 
 
 - (void)AES {
     
+    //4d5237686126d7209e224d02c8e38c644d5237686126d7209e224d02c8e38c64
+    
     NSString *source = @"4d5237686126d7209e224d02c8e38c644d5237686126d7209e224d02c8e38c64";
-    NSString *key = @"19891001";
+    NSString *key = @"15319728628";
     
     NSString *secret = [source aes256_encrypt:key];
     NSLog(@"密文: %@", secret);

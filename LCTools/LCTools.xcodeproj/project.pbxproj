@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		662A52C91DC737F500E18399 /* DataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 662A52C51DC737F500E18399 /* DataBase.m */; };
+		662A52CA1DC737F500E18399 /* newImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 662A52C61DC737F500E18399 /* newImage.png */; };
+		662A52CB1DC737F500E18399 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 662A52C81DC737F500E18399 /* Person.m */; };
 		66ED18D51DB7762900B7A8DC /* BLKLockSecretUtil.mm in Sources */ = {isa = PBXBuildFile; fileRef = 66ED18D01DB7762900B7A8DC /* BLKLockSecretUtil.mm */; };
 		66ED18D61DB7762900B7A8DC /* LCEncryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 66ED18D21DB7762900B7A8DC /* LCEncryption.m */; };
 		66ED18D71DB7762900B7A8DC /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 66ED18D41DB7762900B7A8DC /* NSString+Hash.m */; };
@@ -38,9 +41,16 @@
 		66F5008F1DAE1A49002E2854 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66F5008D1DAE1A49002E2854 /* Main.storyboard */; };
 		66F500911DAE1A49002E2854 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66F500901DAE1A49002E2854 /* Assets.xcassets */; };
 		66F500941DAE1A49002E2854 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66F500921DAE1A49002E2854 /* LaunchScreen.storyboard */; };
+		7AFFB9AAD457E5F4286AE179 /* libPods-LCTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B8714FD57688ED456E440C73 /* libPods-LCTools.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2EDA774984989D25F3E51549 /* Pods-LCTools.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LCTools.release.xcconfig"; path = "Pods/Target Support Files/Pods-LCTools/Pods-LCTools.release.xcconfig"; sourceTree = "<group>"; };
+		662A52C41DC737F500E18399 /* DataBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataBase.h; sourceTree = "<group>"; };
+		662A52C51DC737F500E18399 /* DataBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataBase.m; sourceTree = "<group>"; };
+		662A52C61DC737F500E18399 /* newImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newImage.png; sourceTree = "<group>"; };
+		662A52C71DC737F500E18399 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		662A52C81DC737F500E18399 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		66ED18CF1DB7762900B7A8DC /* BLKLockSecretUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLKLockSecretUtil.h; sourceTree = "<group>"; };
 		66ED18D01DB7762900B7A8DC /* BLKLockSecretUtil.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BLKLockSecretUtil.mm; sourceTree = "<group>"; };
 		66ED18D11DB7762900B7A8DC /* LCEncryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCEncryption.h; sourceTree = "<group>"; };
@@ -86,6 +96,8 @@
 		66F500901DAE1A49002E2854 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		66F500931DAE1A49002E2854 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		66F500951DAE1A49002E2854 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B8714FD57688ED456E440C73 /* libPods-LCTools.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LCTools.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD4DD87E41D0BF9B30BBDB75 /* Pods-LCTools.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LCTools.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LCTools/Pods-LCTools.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,12 +105,33 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AFFB9AAD457E5F4286AE179 /* libPods-LCTools.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5ABD350E37526A4204DE3B5D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B8714FD57688ED456E440C73 /* libPods-LCTools.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		662A52C31DC737F500E18399 /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+				662A52C41DC737F500E18399 /* DataBase.h */,
+				662A52C51DC737F500E18399 /* DataBase.m */,
+				662A52C61DC737F500E18399 /* newImage.png */,
+				662A52C71DC737F500E18399 /* Person.h */,
+				662A52C81DC737F500E18399 /* Person.m */,
+			);
+			path = DataBase;
+			sourceTree = "<group>";
+		};
 		66ED18CE1DB7762900B7A8DC /* 加密 */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +215,8 @@
 			children = (
 				66F500831DAE1A48002E2854 /* LCTools */,
 				66F500821DAE1A48002E2854 /* Products */,
+				A3DA645AB5DC55ADB1A5E6F0 /* Pods */,
+				5ABD350E37526A4204DE3B5D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -196,6 +231,7 @@
 		66F500831DAE1A48002E2854 /* LCTools */ = {
 			isa = PBXGroup;
 			children = (
+				662A52C31DC737F500E18399 /* DataBase */,
 				66F28BD91DBE02F1000B342E /* TabBarVC */,
 				66F28BBC1DBDFB46000B342E /* 运行时 */,
 				66ED18D81DB7763A00B7A8DC /* 蓝牙 */,
@@ -222,6 +258,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		A3DA645AB5DC55ADB1A5E6F0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CD4DD87E41D0BF9B30BBDB75 /* Pods-LCTools.debug.xcconfig */,
+				2EDA774984989D25F3E51549 /* Pods-LCTools.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -229,9 +274,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 66F500981DAE1A49002E2854 /* Build configuration list for PBXNativeTarget "LCTools" */;
 			buildPhases = (
+				E8C2B671BC060026924DDBF5 /* [CP] Check Pods Manifest.lock */,
 				66F5007D1DAE1A48002E2854 /* Sources */,
 				66F5007E1DAE1A48002E2854 /* Frameworks */,
 				66F5007F1DAE1A48002E2854 /* Resources */,
+				C6F0521D1FB93BE15649E3AC /* [CP] Embed Pods Frameworks */,
+				5F50EBBE7B4D036591D05BDF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -287,6 +335,7 @@
 				66F500941DAE1A49002E2854 /* LaunchScreen.storyboard in Resources */,
 				66F28BF21DBE02F2000B342E /* user_normal@3x.png in Resources */,
 				66F28BF01DBE02F2000B342E /* user_highlight@3x.png in Resources */,
+				662A52CA1DC737F500E18399 /* newImage.png in Resources */,
 				66F28BED1DBE02F2000B342E /* history_normal@2x.png in Resources */,
 				66F28BFC1DBE032B000B342E /* TwoViewController.xib in Resources */,
 				66F28BF71DBE0316000B342E /* OneViewController.xib in Resources */,
@@ -304,6 +353,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5F50EBBE7B4D036591D05BDF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LCTools/Pods-LCTools-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C6F0521D1FB93BE15649E3AC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LCTools/Pods-LCTools-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E8C2B671BC060026924DDBF5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		66F5007D1DAE1A48002E2854 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -317,9 +414,11 @@
 				66F5008C1DAE1A49002E2854 /* ViewController.m in Sources */,
 				66F28BBF1DBDFB46000B342E /* LCImageManager.m in Sources */,
 				66F28BBB1DBDF342000B342E /* NSString+AES256.m in Sources */,
+				662A52C91DC737F500E18399 /* DataBase.m in Sources */,
 				66ED18D51DB7762900B7A8DC /* BLKLockSecretUtil.mm in Sources */,
 				66F500891DAE1A49002E2854 /* AppDelegate.m in Sources */,
 				66ED18DB1DB7765B00B7A8DC /* LCBLEManager.m in Sources */,
+				662A52CB1DC737F500E18399 /* Person.m in Sources */,
 				66F28BF61DBE0316000B342E /* OneViewController.m in Sources */,
 				66F500861DAE1A49002E2854 /* main.m in Sources */,
 			);
@@ -437,6 +536,7 @@
 		};
 		66F500991DAE1A49002E2854 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD4DD87E41D0BF9B30BBDB75 /* Pods-LCTools.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = ZP7C7YGT7K;
@@ -449,6 +549,7 @@
 		};
 		66F5009A1DAE1A49002E2854 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2EDA774984989D25F3E51549 /* Pods-LCTools.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = ZP7C7YGT7K;
