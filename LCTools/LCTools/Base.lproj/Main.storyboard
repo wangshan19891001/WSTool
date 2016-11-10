@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -26,9 +26,23 @@
                                     <action selector="dropTable:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pqN-AP-yb2"/>
                                 </connections>
                             </button>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z2x-fX-2bW">
+                                <items>
+                                    <barButtonItem title="Item" id="swm-ie-Mpn"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Z2x-fX-2bW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="1ub-ae-a3y"/>
+                            <constraint firstAttribute="trailing" secondItem="Z2x-fX-2bW" secondAttribute="trailing" id="3dZ-0U-oUd"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Z2x-fX-2bW" secondAttribute="bottom" id="r6k-Lf-Q6M"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="toolBar" destination="Z2x-fX-2bW" id="KdX-FJ-QEv"/>
+                        <outlet property="toolBarBottomConstraints" destination="r6k-Lf-Q6M" id="9Pg-Zp-ukC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

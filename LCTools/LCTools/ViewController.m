@@ -13,11 +13,21 @@
 
 #import "DataBase.h"
 #import <FMDB.h>
+#import "UIView+FrameExtension.h"
 
-@interface ViewController ()
+
+#define kScreenH [UIScreen mainScreen].bounds.size.height
+#define kScreenW [UIScreen mainScreen].bounds.size.width
+
+
+@interface ViewController ()<UITextFieldDelegate>
 
 @property (nonatomic, strong) FMDatabaseQueue *queue;
 
+@property (nonatomic, weak) UITextField *textField;
+
+@property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *toolBarBottomConstraints;
 @end
 
 @implementation ViewController
@@ -26,56 +36,103 @@
     [super viewDidLoad];
     
     
+    NSString *string = @"1234567890abcdefghijklmnopqrstuvwxyz";
+    NSString *subString = [string substringWithRange:NSMakeRange(0, 8)];
+    NSString *subString2 = [string substringWithRange:NSMakeRange(string.length-8, 8)];
+    
+    NSString *key = [subString stringByAppendingString:subString2];
+    NSLog(@"%@", key);
     
     
     
-    
-    
+    [self AES];
     
     
     
     
 }
 
-- (IBAction)dropTable:(UIButton *)sender {
-    DataBase *dbManager = [DataBase sharedManager];
-    [dbManager clearTable];
-}
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     
     
-//    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-//        
-//        DataBase *dbManager = [DataBase sharedManager];
-//        
-//        for (int i = 0; i < 1000; i++) {
-//            Person *person = [[Person alloc] init];
-//            person.ID = @1;
-//            person.name = @"Alice";
-//            person.image = [UIImage imageNamed:@"newImage"];
-//            [dbManager insertPerson:person];
-//        }
-//    });
+    [self.view removeConstraint:_toolBarBottomConstraints];
+    NSLayoutConstraint *new = [NSLayoutConstraint constraintWithItem:_toolBar attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-500.0];
+    
+    [self.view addConstraint:new];
+    
+    
+    
+    
+//    [self.view endEditing:YES];
+    
+    
+}
+
+#pragma mark - 监听键盘高度,使输入框贴这键盘移动
+
+- (void)setKeyboardNotification {
+    
+    UITextField *tf = [[UITextField alloc] initWithFrame:CGRectMake(0, kScreenH - 30, kScreenW, 30)];
+    tf.text = @"test";
+    [self.view addSubview:tf];
+    self.textField = tf;
+    self.textField.delegate = self;
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
+    
+}
+
+- (void)keyboardWillChangeFrame:(NSNotification*)notification {
+    
+    //获取键盘高度
+    NSDictionary *userInfo = [notification userInfo];
+    NSValue *value = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
+    CGRect keyboardRect = [value CGRectValue];
+    CGFloat keyboardY = keyboardRect.origin.y;
+    
+    //获取输入框的y值
+    self.textField.y = keyboardY - self.textField.height;
+    
+}
+
+
+#pragma mark - FMDB 多线程处理
+//FMDB 多线程处理
+- (void)FMDB_Queue {
+    
+    //    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+    //
+    //        DataBase *dbManager = [DataBase sharedManager];
+    //
+    //        for (int i = 0; i < 1000; i++) {
+    //            Person *person = [[Person alloc] init];
+    //            person.ID = @1;
+    //            person.name = @"Alice";
+    //            person.image = [UIImage imageNamed:@"newImage"];
+    //            [dbManager insertPerson:person];
+    //        }
+    //    });
     
     //创建数据库
-//    NSString *documentPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
-//    NSString *fileName = [documentPath stringByAppendingPathComponent:@"sql.sqlite"]; //此处需要传入存在的确定的路径
-//    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:fileName];
-//    [queue inDatabase:^(FMDatabase *db) {
-//        
-//        
-//        NSLog(@"创建一个队列");
-//        DataBase *dbManager = [DataBase sharedManager];
-//        
-//        for (int i = 0; i < 1000; i++) {
-//            Person *person = [[Person alloc] init];
-//            person.ID = [NSNumber numberWithInt:i];
-//            person.name = @"Alice";
-//            person.image = [UIImage imageNamed:@"newImage"];
-//            [dbManager insertPerson:person];
-//        }
-//    }];
+    //    NSString *documentPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+    //    NSString *fileName = [documentPath stringByAppendingPathComponent:@"sql.sqlite"]; //此处需要传入存在的确定的路径
+    //    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:fileName];
+    //    [queue inDatabase:^(FMDatabase *db) {
+    //
+    //
+    //        NSLog(@"创建一个队列");
+    //        DataBase *dbManager = [DataBase sharedManager];
+    //
+    //        for (int i = 0; i < 1000; i++) {
+    //            Person *person = [[Person alloc] init];
+    //            person.ID = [NSNumber numberWithInt:i];
+    //            person.name = @"Alice";
+    //            person.image = [UIImage imageNamed:@"newImage"];
+    //            [dbManager insertPerson:person];
+    //        }
+    //    }];
     
     NSMutableArray *array = [NSMutableArray array];
     DataBase *dbManager = [DataBase sharedManager];
@@ -90,11 +147,14 @@
     
     [dbManager insertPersonArray:array];
     
-    
 }
 
+- (IBAction)dropTable:(UIButton *)sender {
+    DataBase *dbManager = [DataBase sharedManager];
+    [dbManager clearTable];
+}
 
-
+#pragma mark - AES加密算法
 - (void)AES {
     
     //4d5237686126d7209e224d02c8e38c644d5237686126d7209e224d02c8e38c64
