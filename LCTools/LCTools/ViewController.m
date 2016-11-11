@@ -36,24 +36,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //          \U79e6\U6811\U65b0
     
-//    NSString *string = @"1234567890abcdefghijklmnopqrstuvwxyz";
-//    NSString *subString = [string substringWithRange:NSMakeRange(0, 8)];
-//    NSString *subString2 = [string substringWithRange:NSMakeRange(string.length-8, 8)];
-//    
-//    NSString *key = [subString stringByAppendingString:subString2];
-//    NSLog(@"%@", key);
     
-    NSString *str = @"SmurfsT831AC4255065";
-    
-    NSString *str1 = [str.md5String uppercaseString];
-    
-    NSLog(@"%@", str1);
     
     [self AES];
-    
-    
-    
     
 }
 
@@ -164,7 +151,7 @@
     
     //4d5237686126d7209e224d02c8e38c644d5237686126d7209e224d02c8e38c64
     
-//    NSString *source = @"UAE8kchq4eYLT8rsw6/L+EPaX69Gt9m3Vb1fRrE6R2zhxPLQBe2HTbUV5pC4USxjh0YuNd2PqxnX8STyu3A9bUzwydcQBS2tF+fk3p5qLEk=";
+//    NSString *secret = @"UAE8kchq4eYLT8rsw6/L+EPaX69Gt9m3Vb1fRrE6R2zhxPLQBe2HTbUV5pC4USxjh0YuNd2PqxnX8STyu3A9bUzwydcQBS2tF+fk3p5qLEk=";
     
     NSString *source = @"441A6B25D13429314904F3034897DF8E276FBB43DC2A1B2E70F0503607457758";
     
