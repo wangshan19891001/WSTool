@@ -14,6 +14,7 @@
 #import "DataBase.h"
 #import <FMDB.h>
 #import "UIView+FrameExtension.h"
+#import "NSString+Hash.h"
 
 
 #define kScreenH [UIScreen mainScreen].bounds.size.height
@@ -36,14 +37,18 @@
     [super viewDidLoad];
     
     
-    NSString *string = @"1234567890abcdefghijklmnopqrstuvwxyz";
-    NSString *subString = [string substringWithRange:NSMakeRange(0, 8)];
-    NSString *subString2 = [string substringWithRange:NSMakeRange(string.length-8, 8)];
+//    NSString *string = @"1234567890abcdefghijklmnopqrstuvwxyz";
+//    NSString *subString = [string substringWithRange:NSMakeRange(0, 8)];
+//    NSString *subString2 = [string substringWithRange:NSMakeRange(string.length-8, 8)];
+//    
+//    NSString *key = [subString stringByAppendingString:subString2];
+//    NSLog(@"%@", key);
     
-    NSString *key = [subString stringByAppendingString:subString2];
-    NSLog(@"%@", key);
+    NSString *str = @"SmurfsT831AC4255065";
     
+    NSString *str1 = [str.md5String uppercaseString];
     
+    NSLog(@"%@", str1);
     
     [self AES];
     
@@ -159,17 +164,37 @@
     
     //4d5237686126d7209e224d02c8e38c644d5237686126d7209e224d02c8e38c64
     
-    NSString *source = @"4d5237686126d7209e224d02c8e38c644d5237686126d7209e224d02c8e38c64";
-    NSString *key = @"15319728628";
+//    NSString *source = @"UAE8kchq4eYLT8rsw6/L+EPaX69Gt9m3Vb1fRrE6R2zhxPLQBe2HTbUV5pC4USxjh0YuNd2PqxnX8STyu3A9bUzwydcQBS2tF+fk3p5qLEk=";
     
-    NSString *secret = [source aes256_encrypt:key];
-    NSLog(@"密文: %@", secret);
+    NSString *source = @"441A6B25D13429314904F3034897DF8E276FBB43DC2A1B2E70F0503607457758";
     
-    NSString *deSecret = [secret aes256_decrypt:key];
-    NSLog(@"明文: %@", deSecret);
+    NSString *key = @"259B3CBCCD42C3FB";
+    
+    
+    
+    NSString *source1 = [source aes256_encrypt_base64:key];
+    NSLog(@"%@", source1);
     
     
 }
+
+//base64 编码
+- (NSString *)base64StringFromText:(NSString *)text {
+    
+    NSData *data = [text dataUsingEncoding:NSUTF8StringEncoding];
+    NSString *base64String = [data base64EncodedStringWithOptions:0];
+    
+    return base64String;
+}
+
+//base64 反编码
+- (NSString *)textFromBase64String:(NSString *)base64 {
+    
+    NSData *data = [[NSData alloc] initWithBase64EncodedString:base64 options:0];
+    NSString *text = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    return text;
+}
+
 
 #pragma mark - 递归算法
 

@@ -15,7 +15,14 @@
 
 @interface NSString (AES256)
 
--(NSString *) aes256_encrypt:(NSString *)key;
--(NSString *) aes256_decrypt:(NSString *)key;
+/** AES加密,编码方式:base64 */
+-(NSString *) aes256_encrypt_base64:(NSString *)key;
+/** AES解密,编码方式:base64 */
+-(NSString *) aes256_decrypt_base64:(NSString *)key;
+
+/** AES加密,编码方式:十六进制 */
+-(NSString *) aes256_encrypt_16:(NSString *)key;
+/** AES解密,编码方式:十六进制 */
+-(NSString *) aes256_decrypt_16:(NSString *)key;
 
 @end

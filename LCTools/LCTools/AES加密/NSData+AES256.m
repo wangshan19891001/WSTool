@@ -10,7 +10,7 @@
 
 @implementation NSData (AES256)
 
-- (NSData *)aes256_encrypt:(NSString *)key   //加密
+- (NSData *)aes256_encrypt:(NSString *)key   //加密 
 {
     char keyPtr[kCCKeySizeAES256+1];
     bzero(keyPtr, sizeof(keyPtr));
