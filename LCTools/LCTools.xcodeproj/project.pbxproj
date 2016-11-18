@@ -33,9 +33,7 @@
 		661F52191DD48BC800206AFF /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 661F52081DD48BC800206AFF /* UIImageView+WebCache.m */; };
 		661F521A1DD48BC800206AFF /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 661F520A1DD48BC800206AFF /* UIView+WebCacheOperation.m */; };
 		662A06491DCC23C90053908F /* UIView+FrameExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 662A06481DCC23C90053908F /* UIView+FrameExtension.m */; };
-		662A52C91DC737F500E18399 /* DataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 662A52C51DC737F500E18399 /* DataBase.m */; };
 		662A52CA1DC737F500E18399 /* newImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 662A52C61DC737F500E18399 /* newImage.png */; };
-		662A52CB1DC737F500E18399 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 662A52C81DC737F500E18399 /* Person.m */; };
 		66ED18D51DB7762900B7A8DC /* BLKLockSecretUtil.mm in Sources */ = {isa = PBXBuildFile; fileRef = 66ED18D01DB7762900B7A8DC /* BLKLockSecretUtil.mm */; };
 		66ED18D61DB7762900B7A8DC /* LCEncryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 66ED18D21DB7762900B7A8DC /* LCEncryption.m */; };
 		66ED18D71DB7762900B7A8DC /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 66ED18D41DB7762900B7A8DC /* NSString+Hash.m */; };
@@ -67,6 +65,8 @@
 		66F5008F1DAE1A49002E2854 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66F5008D1DAE1A49002E2854 /* Main.storyboard */; };
 		66F500911DAE1A49002E2854 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66F500901DAE1A49002E2854 /* Assets.xcassets */; };
 		66F500941DAE1A49002E2854 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66F500921DAE1A49002E2854 /* LaunchScreen.storyboard */; };
+		66FB89961DDED1D5004DED74 /* DataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FB89931DDED1D5004DED74 /* DataBase.m */; };
+		66FB89971DDED1D5004DED74 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FB89951DDED1D5004DED74 /* Message.m */; };
 		7AFFB9AAD457E5F4286AE179 /* libPods-LCTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B8714FD57688ED456E440C73 /* libPods-LCTools.a */; };
 /* End PBXBuildFile section */
 
@@ -123,11 +123,7 @@
 		661F520A1DD48BC800206AFF /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		662A06471DCC23C90053908F /* UIView+FrameExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FrameExtension.h"; sourceTree = "<group>"; };
 		662A06481DCC23C90053908F /* UIView+FrameExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FrameExtension.m"; sourceTree = "<group>"; };
-		662A52C41DC737F500E18399 /* DataBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataBase.h; sourceTree = "<group>"; };
-		662A52C51DC737F500E18399 /* DataBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataBase.m; sourceTree = "<group>"; };
 		662A52C61DC737F500E18399 /* newImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newImage.png; sourceTree = "<group>"; };
-		662A52C71DC737F500E18399 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
-		662A52C81DC737F500E18399 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		66ED18CF1DB7762900B7A8DC /* BLKLockSecretUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLKLockSecretUtil.h; sourceTree = "<group>"; };
 		66ED18D01DB7762900B7A8DC /* BLKLockSecretUtil.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BLKLockSecretUtil.mm; sourceTree = "<group>"; };
 		66ED18D11DB7762900B7A8DC /* LCEncryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCEncryption.h; sourceTree = "<group>"; };
@@ -173,6 +169,10 @@
 		66F500901DAE1A49002E2854 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		66F500931DAE1A49002E2854 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		66F500951DAE1A49002E2854 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		66FB89921DDED1D5004DED74 /* DataBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataBase.h; sourceTree = "<group>"; };
+		66FB89931DDED1D5004DED74 /* DataBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataBase.m; sourceTree = "<group>"; };
+		66FB89941DDED1D5004DED74 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
+		66FB89951DDED1D5004DED74 /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
 		B8714FD57688ED456E440C73 /* libPods-LCTools.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LCTools.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD4DD87E41D0BF9B30BBDB75 /* Pods-LCTools.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LCTools.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LCTools/Pods-LCTools.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -281,11 +281,11 @@
 		662A52C31DC737F500E18399 /* DataBase */ = {
 			isa = PBXGroup;
 			children = (
-				662A52C41DC737F500E18399 /* DataBase.h */,
-				662A52C51DC737F500E18399 /* DataBase.m */,
 				662A52C61DC737F500E18399 /* newImage.png */,
-				662A52C71DC737F500E18399 /* Person.h */,
-				662A52C81DC737F500E18399 /* Person.m */,
+				66FB89921DDED1D5004DED74 /* DataBase.h */,
+				66FB89931DDED1D5004DED74 /* DataBase.m */,
+				66FB89941DDED1D5004DED74 /* Message.h */,
+				66FB89951DDED1D5004DED74 /* Message.m */,
 			);
 			path = DataBase;
 			sourceTree = "<group>";
@@ -592,7 +592,6 @@
 				661F51E21DD462F200206AFF /* TADotView.m in Sources */,
 				661F52171DD48BC800206AFF /* UIImage+WebP.m in Sources */,
 				661F52131DD48BC800206AFF /* SDWebImagePrefetcher.m in Sources */,
-				662A52C91DC737F500E18399 /* DataBase.m in Sources */,
 				66ED18D51DB7762900B7A8DC /* BLKLockSecretUtil.mm in Sources */,
 				66F500891DAE1A49002E2854 /* AppDelegate.m in Sources */,
 				661F51E81DD462F200206AFF /* UIView+SDExtension.m in Sources */,
@@ -600,12 +599,13 @@
 				66ED18DB1DB7765B00B7A8DC /* LCBLEManager.m in Sources */,
 				661F52101DD48BC800206AFF /* SDWebImageDownloader.m in Sources */,
 				661F52141DD48BC800206AFF /* UIButton+WebCache.m in Sources */,
-				662A52CB1DC737F500E18399 /* Person.m in Sources */,
 				661F520C1DD48BC800206AFF /* NSData+ImageContentType.m in Sources */,
 				66F28BF61DBE0316000B342E /* OneViewController.m in Sources */,
 				661F51E31DD462F200206AFF /* TAPageControl.m in Sources */,
+				66FB89961DDED1D5004DED74 /* DataBase.m in Sources */,
 				661F520D1DD48BC800206AFF /* SDImageCache.m in Sources */,
 				662A06491DCC23C90053908F /* UIView+FrameExtension.m in Sources */,
+				66FB89971DDED1D5004DED74 /* Message.m in Sources */,
 				66F500861DAE1A49002E2854 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

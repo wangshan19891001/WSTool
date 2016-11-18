@@ -7,20 +7,27 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Person.h"
+#import "Message.h"
 
 @interface DataBase : NSObject
 
 /** 数据库单例 */
 + (instancetype)sharedManager;
 /** 批量增加 */
-- (void)insertPersonArray:(NSArray *)personArray;
+- (void)insertMsgArray:(NSArray *)msgArray;
 /** 增 */
-- (void)insertPerson:(Person *)person;
+- (void)insertMsg:(Message *)msg;
 /** 删 */
-- (void)deletePerson:(Person *)person;
+- (void)deleteMsg:(Message *)msg;
 /** 改 */
-- (void)updatePerson:(Person *)person;
+- (void)updateMessage:(Message *)msg;
+
+/** 查 */
+/** 返回数组中是Message对象 */
+- (NSMutableArray *)selectMsgWithUserId:(NSNumber *)userId functionId:(NSNumber *)functionId;
+/** 返回数组中是Message归档后的Data对象 */
+- (NSMutableData *)selectMsgDataWithUserId:(NSNumber *)userId functionId:(NSNumber *)functionId;
+
 /** 删除数据库表 */
 - (void)dropTable;
 /** 清空数据库表 */

@@ -32,7 +32,7 @@
     
     //创建数据库
     NSString *documentPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
-    NSString *fileName = [documentPath stringByAppendingPathComponent:@"sql.sqlite"]; //此处需要传入存在的确定的路径
+    NSString *fileName = [documentPath stringByAppendingPathComponent:@"park.sqlite"]; //此处需要传入存在的确定的路径
     self.dataBase = [FMDatabase databaseWithPath:fileName];
     self.dataBaseQueue = [FMDatabaseQueue databaseQueueWithPath:fileName];
     NSLog(@"数据库路径: %@", fileName);
@@ -41,11 +41,11 @@
         NSLog(@"数据库打开成功");
         
         //创建数据库表
-        BOOL result = [self.dataBase executeUpdate:@"create table if not exists Person(ID integer primary key, userID integer, name text, image blob);"];
+        BOOL result = [self.dataBase executeUpdate:@"create table if not exists Message(ID integer primary key AUTOINCREMENT, userId integer not null, FunctionId integer, MessageBody blob, constraint uk_userId_FunctionId unique (userId,FunctionId));"]; //Title text, Msg text
         if (result) {
-            NSLog(@"Person表打开成功");
+            NSLog(@"Message表打开成功");
         }else{
-            NSLog(@"Person表打开失败");
+            NSLog(@"Message表打开失败");
         }
         
         
@@ -55,45 +55,78 @@
 }
 
 /** 批量增加 */
-- (void)insertPersonArray:(NSArray *)personArray {
+- (void)insertMsgArray:(NSArray *)msgArray {
     [self.dataBaseQueue inDatabase:^(FMDatabase *db) {
         
-        for (Person *person in personArray) {
-            [self insertPerson:person];
+        for (Message *msg in msgArray) {
+            [self insertMsg:msg];
         }
     }];
 }
 
 
 /** 增 */
-- (void)insertPerson:(Person *)person {
+- (void)insertMsg:(Message *)msg {
     
     self.dataBase.logsErrors = NO; //关闭日志输出
-    BOOL result = [self.dataBase executeUpdate:@"insert into Person values (?,?,?,?);", person.ID, person.userID, person.name, UIImagePNGRepresentation(person.image)];
+    
+    //归档
+    NSMutableData *data = [[NSMutableData alloc] init];
+    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
+    [archiver encodeObject:msg forKey:@"msg"]; // Message 的encodeWithCoder方法被调用
+    [archiver finishEncoding];
+    
+    BOOL result = [self.dataBase executeUpdate:@"insert into Message(userId,FunctionId,MessageBody) values (?,?,?);", msg.userId, msg.FunctionId, data];
     if (result) {
         NSLog(@"增加一条数据成功");
     }else{
-//        NSLog(@"增加一条数据失败");
-        [self updatePerson:person];
-//        [self.dataBase lastError];
+        [self updateMessage:msg];
     }
 }
 
 /** 删 */
-- (void)deletePerson:(Person *)person {
+- (void)deleteMsg:(Message *)msg {
     self.dataBase.logsErrors = YES;
-    BOOL result = [self.dataBase executeUpdate:@"delete from Person where ID=?", person.ID];
+    
+    //从数据库中查找该会话
+    NSMutableArray *conversationArray = [self selectMsgWithUserId:msg.userId functionId:msg.FunctionId];
+    [conversationArray removeObject:msg];
+    
+    NSData *conversatonData = [NSKeyedArchiver archivedDataWithRootObject:conversationArray];
+    
+    BOOL result = [self.dataBase executeUpdate:@"update Message set MessageBody=? where userId=? and FunctionId=?", conversatonData, msg.userId, msg.FunctionId];
     if (result) {
         NSLog(@"删除一条数据成功");
     }else{
         NSLog(@"删除一条数据失败");
     }
+    
+    
+//    BOOL result = [self.dataBase executeUpdate:@"delete from Message where userId=?", msg.userId];
+//    if (result) {
+//        NSLog(@"删除一条数据成功");
+//    }else{
+//        NSLog(@"删除一条数据失败");
+//    }
 }
 
 /** 改 */
-- (void)updatePerson:(Person *)person {
+- (void)updateMessage:(Message *)msg {
     self.dataBase.logsErrors = YES;
-    BOOL result = [self.dataBase executeUpdate:@"update Person set name=? where ID=?", person.name, person.ID];
+    
+    //归档
+    NSMutableData *data = [[NSMutableData alloc] init];
+    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
+    [archiver encodeObject:msg forKey:@"msg"]; // Message 的encodeWithCoder方法被调用
+    [archiver finishEncoding];
+    
+    //从数据库中查找该会话
+    NSMutableData *conversatonData = [self selectMsgDataWithUserId:msg.userId functionId:msg.FunctionId];
+    
+    //插入新数据
+    [conversatonData appendData:data];
+    
+    BOOL result = [self.dataBase executeUpdate:@"update Message set MessageBody=? where userId=? and FunctionId=?", conversatonData, msg.userId, msg.FunctionId];
     if (result) {
         NSLog(@"更新一条数据成功");
     }else{
@@ -102,14 +135,63 @@
 }
 
 /** 查 */
-- (void)selectPerson:(Person *)person {
+/** 返回数组中是Message对象 */
+- (NSMutableArray *)selectMsgWithUserId:(NSNumber *)userId functionId:(NSNumber *)functionId {
     self.dataBase.logsErrors = YES;
+    
+    NSMutableArray *msgArray = [NSMutableArray array];
+    
+    NSMutableArray *msgArray1 = [NSMutableArray array];
+    FMResultSet *set = [self.dataBase executeQuery:@"select MessageBody from Message where userId=? and FunctionId=?;", userId, functionId];
+    while (set.next) {
+        
+        NSData *messageBody = [set objectForColumnName:@"MessageBody"];
+        
+        [msgArray1 addObject:messageBody];
+        
+//        //反归档
+//        NSKeyedUnarchiver *unarchiver = [NSKeyedUnarchiver unarchiveObjectWithData:messageBody];
+//        Message *msg = [unarchiver decodeObjectForKey:@"msg"]; // Message 的 initWithCoder方法被调用
+//        [unarchiver finishDecoding];
+//        
+//        [msgArray addObject:msg];
+        
+    }
+    
+    NSData *data1 = [NSData data];
+    NSKeyedUnarchiver *unarchiver = [NSKeyedUnarchiver unarchiveObjectWithData:data1];
+    NSLog(@"%@", unarchiver);
+    
+    for (NSData *data in msgArray1) {
+        NSKeyedUnarchiver *unarchiver = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        Message *msg = [unarchiver decodeObjectForKey:@"msg"]; // Message 的 initWithCoder方法被调用
+        [msgArray addObject:msg];
+    }
+    
+    
+    return msgArray;;
     
 }
 
+/** 返回数组中是Message归档后的Data对象 */
+- (NSMutableData *)selectMsgDataWithUserId:(NSNumber *)userId functionId:(NSNumber *)functionId {
+    self.dataBase.logsErrors = YES;
+    
+    
+    NSMutableData *msgData = [NSMutableData data];
+    FMResultSet *set = [self.dataBase executeQuery:@"select MessageBody from Message where userId=? and FunctionId=?;", userId, functionId];
+    while (set.next) {
+        
+        NSData *messageBody = [set objectForColumnName:@"MessageBody"];
+        [msgData appendData:messageBody];
+    }
+    return msgData;;
+}
+
+
 /** 删除数据库表 */
 - (void)dropTable {
-    BOOL result = [self.dataBase executeUpdate:@"drop table Person"];
+    BOOL result = [self.dataBase executeUpdate:@"drop table Message"];
     if (result) {
         NSLog(@"删除数据库表成功");
     }else{
@@ -120,7 +202,7 @@
 
 /** 清空数据库表 */
 - (void)clearTable {
-    BOOL result = [self.dataBase executeUpdate:@"delete from Person"];
+    BOOL result = [self.dataBase executeUpdate:@"delete from Message"];
     if (result) {
         NSLog(@"清空表成功");
     }else{

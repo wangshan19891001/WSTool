@@ -23,7 +23,7 @@
 
 @interface ViewController ()<UITextFieldDelegate>
 
-@property (nonatomic, strong) FMDatabaseQueue *queue;
+//@property (nonatomic, strong) FMDatabaseQueue *queue;
 
 @property (nonatomic, weak) UITextField *textField;
 
@@ -40,7 +40,10 @@
     
     
     
-    [self AES];
+//    [self AES];
+    
+    [self FMDB_Queue];
+    
     
 }
 
@@ -94,6 +97,28 @@
 //FMDB 多线程处理
 - (void)FMDB_Queue {
     
+    
+    NSString *string = @"string";
+    
+    
+    
+    
+    DataBase *dbManager = [DataBase sharedManager];
+    
+//    Message *message = [[Message alloc] init];
+//    message.userId = @1;
+//    message.FunctionId = @1;
+//    message.Title = @"标题4";
+//    message.Msg = @"我是消息4";
+//    [dbManager insertMsg:message];
+    
+    
+    NSArray *msgArray = [dbManager selectMsgWithUserId:@1 functionId:@1];
+    for (Message *message in msgArray) {
+        NSLog(@"%@", message.Msg);
+    }
+    
+    
     //    dispatch_async(dispatch_get_global_queue(0, 0), ^{
     //
     //        DataBase *dbManager = [DataBase sharedManager];
@@ -126,18 +151,18 @@
     //        }
     //    }];
     
-    NSMutableArray *array = [NSMutableArray array];
-    DataBase *dbManager = [DataBase sharedManager];
-    
-    for (int i = 0; i < 10; i++) {
-        Person *person = [[Person alloc] init];
-        person.ID = [NSNumber numberWithInt:i];
-        person.name = @"Alice";
-        person.image = [UIImage imageNamed:@"newImage"];
-        [array addObject:person];
-    }
-    
-    [dbManager insertPersonArray:array];
+//    NSMutableArray *array = [NSMutableArray array];
+//    DataBase *dbManager = [DataBase sharedManager];
+//    
+//    for (int i = 0; i < 10; i++) {
+//        Person *person = [[Person alloc] init];
+//        person.ID = [NSNumber numberWithInt:i];
+//        person.name = @"Alice";
+//        person.image = [UIImage imageNamed:@"newImage"];
+//        [array addObject:person];
+//    }
+//    
+//    [dbManager insertPersonArray:array];
     
 }
 
