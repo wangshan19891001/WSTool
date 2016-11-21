@@ -34,6 +34,8 @@
 		661F521A1DD48BC800206AFF /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 661F520A1DD48BC800206AFF /* UIView+WebCacheOperation.m */; };
 		662A06491DCC23C90053908F /* UIView+FrameExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 662A06481DCC23C90053908F /* UIView+FrameExtension.m */; };
 		662A52CA1DC737F500E18399 /* newImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 662A52C61DC737F500E18399 /* newImage.png */; };
+		6687AB961DE29C640044C42F /* CYZBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6687AB951DE29C640044C42F /* CYZBaseModel.m */; };
+		6687AB9D1DE2C25A0044C42F /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 6687AB9C1DE2C25A0044C42F /* Person.m */; };
 		66ED18D51DB7762900B7A8DC /* BLKLockSecretUtil.mm in Sources */ = {isa = PBXBuildFile; fileRef = 66ED18D01DB7762900B7A8DC /* BLKLockSecretUtil.mm */; };
 		66ED18D61DB7762900B7A8DC /* LCEncryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 66ED18D21DB7762900B7A8DC /* LCEncryption.m */; };
 		66ED18D71DB7762900B7A8DC /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 66ED18D41DB7762900B7A8DC /* NSString+Hash.m */; };
@@ -124,6 +126,10 @@
 		662A06471DCC23C90053908F /* UIView+FrameExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FrameExtension.h"; sourceTree = "<group>"; };
 		662A06481DCC23C90053908F /* UIView+FrameExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FrameExtension.m"; sourceTree = "<group>"; };
 		662A52C61DC737F500E18399 /* newImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newImage.png; sourceTree = "<group>"; };
+		6687AB941DE29C640044C42F /* CYZBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYZBaseModel.h; sourceTree = "<group>"; };
+		6687AB951DE29C640044C42F /* CYZBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYZBaseModel.m; sourceTree = "<group>"; };
+		6687AB9B1DE2C25A0044C42F /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		6687AB9C1DE2C25A0044C42F /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		66ED18CF1DB7762900B7A8DC /* BLKLockSecretUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLKLockSecretUtil.h; sourceTree = "<group>"; };
 		66ED18D01DB7762900B7A8DC /* BLKLockSecretUtil.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BLKLockSecretUtil.mm; sourceTree = "<group>"; };
 		66ED18D11DB7762900B7A8DC /* LCEncryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCEncryption.h; sourceTree = "<group>"; };
@@ -290,6 +296,24 @@
 			path = DataBase;
 			sourceTree = "<group>";
 		};
+		6687AB931DE29C640044C42F /* 字典-模型(转换) */ = {
+			isa = PBXGroup;
+			children = (
+				6687AB941DE29C640044C42F /* CYZBaseModel.h */,
+				6687AB951DE29C640044C42F /* CYZBaseModel.m */,
+			);
+			path = "字典-模型(转换)";
+			sourceTree = "<group>";
+		};
+		6687AB9A1DE2C25A0044C42F /* 归档与反归档 */ = {
+			isa = PBXGroup;
+			children = (
+				6687AB9B1DE2C25A0044C42F /* Person.h */,
+				6687AB9C1DE2C25A0044C42F /* Person.m */,
+			);
+			path = "归档与反归档";
+			sourceTree = "<group>";
+		};
 		66ED18CE1DB7762900B7A8DC /* 加密 */ = {
 			isa = PBXGroup;
 			children = (
@@ -389,6 +413,8 @@
 		66F500831DAE1A48002E2854 /* LCTools */ = {
 			isa = PBXGroup;
 			children = (
+				6687AB9A1DE2C25A0044C42F /* 归档与反归档 */,
+				6687AB931DE29C640044C42F /* 字典-模型(转换) */,
 				661F51CE1DD462F200206AFF /* SDCycleScrollView */,
 				662A06461DCC23C90053908F /* UIView+FrameExtension */,
 				662A52C31DC737F500E18399 /* DataBase */,
@@ -568,6 +594,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6687AB9D1DE2C25A0044C42F /* Person.m in Sources */,
 				661F520F1DD48BC800206AFF /* SDWebImageDecoder.m in Sources */,
 				661F521A1DD48BC800206AFF /* UIView+WebCacheOperation.m in Sources */,
 				66ED18D71DB7762900B7A8DC /* NSString+Hash.m in Sources */,
@@ -592,6 +619,7 @@
 				661F51E21DD462F200206AFF /* TADotView.m in Sources */,
 				661F52171DD48BC800206AFF /* UIImage+WebP.m in Sources */,
 				661F52131DD48BC800206AFF /* SDWebImagePrefetcher.m in Sources */,
+				6687AB961DE29C640044C42F /* CYZBaseModel.m in Sources */,
 				66ED18D51DB7762900B7A8DC /* BLKLockSecretUtil.mm in Sources */,
 				66F500891DAE1A49002E2854 /* AppDelegate.m in Sources */,
 				661F51E81DD462F200206AFF /* UIView+SDExtension.m in Sources */,

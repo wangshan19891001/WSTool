@@ -15,10 +15,12 @@
 #import <FMDB.h>
 #import "UIView+FrameExtension.h"
 #import "NSString+Hash.h"
-
+#import "Person.h"
 
 #define kScreenH [UIScreen mainScreen].bounds.size.height
 #define kScreenW [UIScreen mainScreen].bounds.size.width
+
+#define kDocumentPath [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject]
 
 
 @interface ViewController ()<UITextFieldDelegate>
@@ -40,29 +42,77 @@
     
     
     
-//    [self AES];
-    
-    [self FMDB_Queue];
+
     
     
 }
 
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+#pragma mark - 归档与反归档
+
+// 复杂对象归档
+- (void)archiver
+{
+    // 初始化对象
+    Person *model = [[Person alloc] init];
+    // 赋值对象
+    model.name = @"悟空";
+    model.age = 500;
+    // 将 图片转化成data
+    // 把一个png格式的转化为data
+    model.data = UIImagePNGRepresentation([UIImage imageNamed:@"pic2"]);
     
+    // 创建一个可变data 初始化归档对象
+    NSMutableData *data = [NSMutableData data];
+    // 创建一个归档对象
+    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
+    // 进行归档编码
+    [archiver encodeObject:model forKey:@"JJModel"]; //此时调用归档方法encodeWithCoder:
     
-    [self.view removeConstraint:_toolBarBottomConstraints];
-    NSLayoutConstraint *new = [NSLayoutConstraint constraintWithItem:_toolBar attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-500.0];
+    // 编码完成
+    [archiver finishEncoding];
+    // 实际上归档 相当于把编码完的对象 保存到data中
+    NSLog(@"%@", data);
+    // 把存有复杂对象的data写入文件中进行持久化
     
-    [self.view addConstraint:new];
+    // 路径
+    NSString *dataPath = [kDocumentPath stringByAppendingPathComponent:@"JJModel.da"];
+    // 写入方法
+    [data writeToFile:dataPath atomically:YES];
     
-    
-    
-    
-//    [self.view endEditing:YES];
-    
+    NSLog(@"%@", dataPath);
     
 }
+// 反归档 解码的过程
+- (void)unArchiver
+{
+    // 创建反归档对象
+    // 获取刚才归档的data
+    NSString *dataPath = [kDocumentPath stringByAppendingPathComponent:@"JJModel.da"];
+    NSData *data = [NSData dataWithContentsOfFile:dataPath];
+    NSKeyedUnarchiver *unArchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+    // 解码返回一个对象
+    Person *model = [unArchiver decodeObjectForKey:@"JJModel"]; // 此时调用反归档方法initWithCoder:
+    // 反归档完成
+    [unArchiver finishDecoding];
+    
+    
+    
+    UIImage *image = [UIImage imageWithData:model.data];
+    NSLog(@"%@", model);
+}
+
+
+
+//- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+//    
+//    
+//    [self.view removeConstraint:_toolBarBottomConstraints];
+//    NSLayoutConstraint *new = [NSLayoutConstraint constraintWithItem:_toolBar attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-500.0];
+//    
+//    [self.view addConstraint:new];
+//    
+//}
 
 #pragma mark - 监听键盘高度,使输入框贴这键盘移动
 
@@ -93,63 +143,63 @@
 }
 
 
-#pragma mark - FMDB 多线程处理
-//FMDB 多线程处理
-- (void)FMDB_Queue {
-    
-    
-    NSString *string = @"string";
-    
-    
-    
+#pragma mark - FMDB 数据库
+- (void)message {
     
     DataBase *dbManager = [DataBase sharedManager];
     
-//    Message *message = [[Message alloc] init];
-//    message.userId = @1;
-//    message.FunctionId = @1;
-//    message.Title = @"标题4";
-//    message.Msg = @"我是消息4";
-//    [dbManager insertMsg:message];
+    Message *message = [[Message alloc] init];
+    message.userId = @1;
+    message.FunctionId = @1;
+    message.Title = @"标题3";
+    message.Msg = @"我是消息3";
+    [dbManager insertMsg:message];
     
     
-    NSArray *msgArray = [dbManager selectMsgWithUserId:@1 functionId:@1];
+    NSArray *msgArray = [dbManager selectMsgArrayWithUserId:@1 functionId:@1];
     for (Message *message in msgArray) {
         NSLog(@"%@", message.Msg);
     }
     
+    NSLog(@"%@", msgArray);
     
-    //    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-    //
-    //        DataBase *dbManager = [DataBase sharedManager];
-    //
-    //        for (int i = 0; i < 1000; i++) {
-    //            Person *person = [[Person alloc] init];
-    //            person.ID = @1;
-    //            person.name = @"Alice";
-    //            person.image = [UIImage imageNamed:@"newImage"];
-    //            [dbManager insertPerson:person];
-    //        }
-    //    });
+}
+
+//FMDB 多线程处理
+- (void)FMDB_Queue {
     
-    //创建数据库
-    //    NSString *documentPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
-    //    NSString *fileName = [documentPath stringByAppendingPathComponent:@"sql.sqlite"]; //此处需要传入存在的确定的路径
-    //    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:fileName];
-    //    [queue inDatabase:^(FMDatabase *db) {
-    //
-    //
-    //        NSLog(@"创建一个队列");
-    //        DataBase *dbManager = [DataBase sharedManager];
-    //
-    //        for (int i = 0; i < 1000; i++) {
-    //            Person *person = [[Person alloc] init];
-    //            person.ID = [NSNumber numberWithInt:i];
-    //            person.name = @"Alice";
-    //            person.image = [UIImage imageNamed:@"newImage"];
-    //            [dbManager insertPerson:person];
-    //        }
-    //    }];
+    
+//    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+//
+//        DataBase *dbManager = [DataBase sharedManager];
+//
+//        for (int i = 0; i < 1000; i++) {
+//            Person *person = [[Person alloc] init];
+//            person.ID = @1;
+//            person.name = @"Alice";
+//            person.image = [UIImage imageNamed:@"newImage"];
+//            [dbManager insertPerson:person];
+//        }
+//    });
+
+//创建数据库
+//    NSString *documentPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+//    NSString *fileName = [documentPath stringByAppendingPathComponent:@"sql.sqlite"]; //此处需要传入存在的确定的路径
+//    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:fileName];
+//    [queue inDatabase:^(FMDatabase *db) {
+//
+//
+//        NSLog(@"创建一个队列");
+//        DataBase *dbManager = [DataBase sharedManager];
+//
+//        for (int i = 0; i < 1000; i++) {
+//            Person *person = [[Person alloc] init];
+//            person.ID = [NSNumber numberWithInt:i];
+//            person.name = @"Alice";
+//            person.image = [UIImage imageNamed:@"newImage"];
+//            [dbManager insertPerson:person];
+//        }
+//    }];
     
 //    NSMutableArray *array = [NSMutableArray array];
 //    DataBase *dbManager = [DataBase sharedManager];
@@ -174,18 +224,15 @@
 #pragma mark - AES加密算法
 - (void)AES {
     
-    //4d5237686126d7209e224d02c8e38c644d5237686126d7209e224d02c8e38c64
+
     
-//    NSString *secret = @"UAE8kchq4eYLT8rsw6/L+EPaX69Gt9m3Vb1fRrE6R2zhxPLQBe2HTbUV5pC4USxjh0YuNd2PqxnX8STyu3A9bUzwydcQBS2tF+fk3p5qLEk=";
+    NSString *secret = @"5hQxKalvbcaE+dbObSPlNg==";
     
-    NSString *source = @"441A6B25D13429314904F3034897DF8E276FBB43DC2A1B2E70F0503607457758";
+    NSString *key = @"30E93ECB5D1E3C14";
     
-    NSString *key = @"259B3CBCCD42C3FB";
-    
-    
-    
-    NSString *source1 = [source aes256_encrypt_base64:key];
+    NSString *source1 = [secret aes256_decrypt_base64:key];
     NSLog(@"%@", source1);
+    
     
     
 }

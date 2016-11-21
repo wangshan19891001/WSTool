@@ -19,14 +19,16 @@
 - (void)insertMsg:(Message *)msg;
 /** 删 */
 - (void)deleteMsg:(Message *)msg;
+/** 根据userId清空消息 */
+- (void)deleteMsgByUserId:(NSNumber *)userId;
 /** 改 */
 - (void)updateMessage:(Message *)msg;
 
 /** 查 */
 /** 返回数组中是Message对象 */
-- (NSMutableArray *)selectMsgWithUserId:(NSNumber *)userId functionId:(NSNumber *)functionId;
+//- (NSMutableArray *)selectMsgWithUserId:(NSNumber *)userId functionId:(NSNumber *)functionId;
 /** 返回数组中是Message归档后的Data对象 */
-- (NSMutableData *)selectMsgDataWithUserId:(NSNumber *)userId functionId:(NSNumber *)functionId;
+- (NSMutableArray *)selectMsgArrayWithUserId:(NSNumber *)userId functionId:(NSNumber *)functionId;
 
 /** 删除数据库表 */
 - (void)dropTable;

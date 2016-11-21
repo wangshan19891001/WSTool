@@ -6,9 +6,9 @@
 //  Copyright © 2016年 FeelingOnline. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "CYZBaseModel.h"
 
-@interface Message : NSObject<NSCoding>
+@interface Message : CYZBaseModel<NSCoding>
 @property (nonatomic, strong) NSNumber* userId;
 @property (nonatomic, strong) NSNumber* FunctionId;
 @property (nonatomic, copy) NSString* Title;
