@@ -34,8 +34,12 @@
 		661F521A1DD48BC800206AFF /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 661F520A1DD48BC800206AFF /* UIView+WebCacheOperation.m */; };
 		662A06491DCC23C90053908F /* UIView+FrameExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 662A06481DCC23C90053908F /* UIView+FrameExtension.m */; };
 		662A52CA1DC737F500E18399 /* newImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 662A52C61DC737F500E18399 /* newImage.png */; };
+		666210061E11FEFE00A88578 /* NewFeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 666210051E11FEFE00A88578 /* NewFeatureViewController.m */; };
 		6687AB961DE29C640044C42F /* CYZBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6687AB951DE29C640044C42F /* CYZBaseModel.m */; };
 		6687AB9D1DE2C25A0044C42F /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 6687AB9C1DE2C25A0044C42F /* Person.m */; };
+		66BA94BB1DE9260E007CB715 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BA94B91DE9260E007CB715 /* MenuViewController.m */; };
+		66BA94BC1DE9260E007CB715 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66BA94BA1DE9260E007CB715 /* MenuViewController.xib */; };
+		66BA94C01DE92705007CB715 /* DOPDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BA94BF1DE92705007CB715 /* DOPDropDownMenu.m */; };
 		66ED18D51DB7762900B7A8DC /* BLKLockSecretUtil.mm in Sources */ = {isa = PBXBuildFile; fileRef = 66ED18D01DB7762900B7A8DC /* BLKLockSecretUtil.mm */; };
 		66ED18D61DB7762900B7A8DC /* LCEncryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 66ED18D21DB7762900B7A8DC /* LCEncryption.m */; };
 		66ED18D71DB7762900B7A8DC /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 66ED18D41DB7762900B7A8DC /* NSString+Hash.m */; };
@@ -126,10 +130,17 @@
 		662A06471DCC23C90053908F /* UIView+FrameExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FrameExtension.h"; sourceTree = "<group>"; };
 		662A06481DCC23C90053908F /* UIView+FrameExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FrameExtension.m"; sourceTree = "<group>"; };
 		662A52C61DC737F500E18399 /* newImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newImage.png; sourceTree = "<group>"; };
+		666210041E11FEFE00A88578 /* NewFeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewFeatureViewController.h; sourceTree = "<group>"; };
+		666210051E11FEFE00A88578 /* NewFeatureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewFeatureViewController.m; sourceTree = "<group>"; };
 		6687AB941DE29C640044C42F /* CYZBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYZBaseModel.h; sourceTree = "<group>"; };
 		6687AB951DE29C640044C42F /* CYZBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYZBaseModel.m; sourceTree = "<group>"; };
 		6687AB9B1DE2C25A0044C42F /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		6687AB9C1DE2C25A0044C42F /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		66BA94B81DE9260E007CB715 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		66BA94B91DE9260E007CB715 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		66BA94BA1DE9260E007CB715 /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
+		66BA94BE1DE92705007CB715 /* DOPDropDownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOPDropDownMenu.h; sourceTree = "<group>"; };
+		66BA94BF1DE92705007CB715 /* DOPDropDownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOPDropDownMenu.m; sourceTree = "<group>"; };
 		66ED18CF1DB7762900B7A8DC /* BLKLockSecretUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLKLockSecretUtil.h; sourceTree = "<group>"; };
 		66ED18D01DB7762900B7A8DC /* BLKLockSecretUtil.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BLKLockSecretUtil.mm; sourceTree = "<group>"; };
 		66ED18D11DB7762900B7A8DC /* LCEncryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCEncryption.h; sourceTree = "<group>"; };
@@ -296,6 +307,15 @@
 			path = DataBase;
 			sourceTree = "<group>";
 		};
+		666210031E11FEFE00A88578 /* 新特性引导页 */ = {
+			isa = PBXGroup;
+			children = (
+				666210041E11FEFE00A88578 /* NewFeatureViewController.h */,
+				666210051E11FEFE00A88578 /* NewFeatureViewController.m */,
+			);
+			path = "新特性引导页";
+			sourceTree = "<group>";
+		};
 		6687AB931DE29C640044C42F /* 字典-模型(转换) */ = {
 			isa = PBXGroup;
 			children = (
@@ -312,6 +332,15 @@
 				6687AB9C1DE2C25A0044C42F /* Person.m */,
 			);
 			path = "归档与反归档";
+			sourceTree = "<group>";
+		};
+		66BA94BD1DE92705007CB715 /* DOPDropDownMenu */ = {
+			isa = PBXGroup;
+			children = (
+				66BA94BE1DE92705007CB715 /* DOPDropDownMenu.h */,
+				66BA94BF1DE92705007CB715 /* DOPDropDownMenu.m */,
+			);
+			path = DOPDropDownMenu;
 			sourceTree = "<group>";
 		};
 		66ED18CE1DB7762900B7A8DC /* 加密 */ = {
@@ -413,6 +442,8 @@
 		66F500831DAE1A48002E2854 /* LCTools */ = {
 			isa = PBXGroup;
 			children = (
+				666210031E11FEFE00A88578 /* 新特性引导页 */,
+				66BA94BD1DE92705007CB715 /* DOPDropDownMenu */,
 				6687AB9A1DE2C25A0044C42F /* 归档与反归档 */,
 				6687AB931DE29C640044C42F /* 字典-模型(转换) */,
 				661F51CE1DD462F200206AFF /* SDCycleScrollView */,
@@ -427,6 +458,9 @@
 				66F500881DAE1A49002E2854 /* AppDelegate.m */,
 				66F5008A1DAE1A49002E2854 /* ViewController.h */,
 				66F5008B1DAE1A49002E2854 /* ViewController.m */,
+				66BA94B81DE9260E007CB715 /* MenuViewController.h */,
+				66BA94B91DE9260E007CB715 /* MenuViewController.m */,
+				66BA94BA1DE9260E007CB715 /* MenuViewController.xib */,
 				66F5008D1DAE1A49002E2854 /* Main.storyboard */,
 				66F500901DAE1A49002E2854 /* Assets.xcassets */,
 				66F500921DAE1A49002E2854 /* LaunchScreen.storyboard */,
@@ -522,6 +556,7 @@
 				66F28BF21DBE02F2000B342E /* user_normal@3x.png in Resources */,
 				66F28BF01DBE02F2000B342E /* user_highlight@3x.png in Resources */,
 				662A52CA1DC737F500E18399 /* newImage.png in Resources */,
+				66BA94BC1DE9260E007CB715 /* MenuViewController.xib in Resources */,
 				66F28BED1DBE02F2000B342E /* history_normal@2x.png in Resources */,
 				66F28BFC1DBE032B000B342E /* TwoViewController.xib in Resources */,
 				66F28BF71DBE0316000B342E /* OneViewController.xib in Resources */,
@@ -604,6 +639,7 @@
 				66F28C001DBE0337000B342E /* ThreeViewController.m in Sources */,
 				661F520E1DD48BC800206AFF /* SDWebImageCompat.m in Sources */,
 				661F52111DD48BC800206AFF /* SDWebImageDownloaderOperation.m in Sources */,
+				666210061E11FEFE00A88578 /* NewFeatureViewController.m in Sources */,
 				66ED18D61DB7762900B7A8DC /* LCEncryption.m in Sources */,
 				66F28BFB1DBE032B000B342E /* TwoViewController.m in Sources */,
 				661F52191DD48BC800206AFF /* UIImageView+WebCache.m in Sources */,
@@ -615,10 +651,12 @@
 				661F51E11DD462F200206AFF /* TAAnimatedDotView.m in Sources */,
 				661F51E01DD462F200206AFF /* TAAbstractDotView.m in Sources */,
 				661F52151DD48BC800206AFF /* UIImage+GIF.m in Sources */,
+				66BA94C01DE92705007CB715 /* DOPDropDownMenu.m in Sources */,
 				661F52161DD48BC800206AFF /* UIImage+MultiFormat.m in Sources */,
 				661F51E21DD462F200206AFF /* TADotView.m in Sources */,
 				661F52171DD48BC800206AFF /* UIImage+WebP.m in Sources */,
 				661F52131DD48BC800206AFF /* SDWebImagePrefetcher.m in Sources */,
+				66BA94BB1DE9260E007CB715 /* MenuViewController.m in Sources */,
 				6687AB961DE29C640044C42F /* CYZBaseModel.m in Sources */,
 				66ED18D51DB7762900B7A8DC /* BLKLockSecretUtil.mm in Sources */,
 				66F500891DAE1A49002E2854 /* AppDelegate.m in Sources */,

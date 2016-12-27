@@ -17,13 +17,17 @@
 #import "NSString+Hash.h"
 #import "Person.h"
 
+
+#import "DOPDropDownMenu.h"
+
+
 #define kScreenH [UIScreen mainScreen].bounds.size.height
 #define kScreenW [UIScreen mainScreen].bounds.size.width
 
 #define kDocumentPath [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject]
 
 
-@interface ViewController ()<UITextFieldDelegate>
+@interface ViewController ()<UITextFieldDelegate, DOPDropDownMenuDataSource, DOPDropDownMenuDelegate>
 
 //@property (nonatomic, strong) FMDatabaseQueue *queue;
 
@@ -31,6 +35,10 @@
 
 @property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *toolBarBottomConstraints;
+
+
+@property (nonatomic, strong) DOPDropDownMenu* menu;
+
 @end
 
 @implementation ViewController
@@ -40,10 +48,12 @@
     
     //          \U79e6\U6811\U65b0
     
-    
-    
-
-    
+//    self.menu = [[DOPDropDownMenu alloc] initWithOrigin:CGPointMake(0, 0) andHeight:40];
+//    self.menu.dataSource = self;
+//    self.menu.delegate = self;
+//    
+//    self.menu.frame = CGRectMake(0, 0, kScreenW, 50);
+//    [self.view addSubview:self.menu];
     
 }
 
@@ -216,9 +226,11 @@
     
 }
 
+// 测试
 - (IBAction)dropTable:(UIButton *)sender {
-    DataBase *dbManager = [DataBase sharedManager];
-    [dbManager clearTable];
+//    DataBase *dbManager = [DataBase sharedManager];
+//    [dbManager clearTable];
+    
 }
 
 #pragma mark - AES加密算法
